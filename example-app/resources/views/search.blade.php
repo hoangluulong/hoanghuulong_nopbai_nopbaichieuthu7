@@ -74,6 +74,7 @@
     </tr>
   </thead>
   <tbody>
+      @isset($name)
       @foreach($trainerssearch as $trainer):
         <tr>
             <th>{!! $trainer->trainer_id !!}</th>
@@ -83,8 +84,11 @@
             <td>{!! $trainer->company_id !!}</td>
         </tr>   
       @endforeach
+      @endisset
   </tbody>
 </table>
+        @isset($name)
     {{$trainerssearch -> links()}}
+    @endisset
     </body>
 </html>
