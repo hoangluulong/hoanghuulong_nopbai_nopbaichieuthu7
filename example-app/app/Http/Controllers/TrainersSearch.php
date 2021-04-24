@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Trainers;
 
-class TrainersController extends Controller
+class TrainersSearch extends Controller
 {
-    public function trainers() {
-        $obj = new Trainers();
-        $trainers = $obj->paginate(15);
-        return view('trainers', ['trainers' => $trainers]);
+    public function trainerssearch($name) {
+        $obj = DB::select('select * from trainers where trainer_name  LIKE' + $name);
+        $trainerssearch = $obj->paginate(15);
+        return view('trainerssearch', ['trainers' => $trainerssearch]);
     }
 }
