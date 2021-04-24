@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Trainers;
+use Illuminate\Http\Request;
 
 class TrainersSearch extends Controller
 {
-    public function trainerssearch($name) {
-        $obj = DB::select('select * from trainers where trainer_name  LIKE' + $name);
-        $trainerssearch = $obj->paginate(15);
-        return view('trainerssearch', ['trainers' => $trainerssearch]);
+    public function trainerssearch(Request $request) {
+        $name = $request->get('trainer_name');
+        $obj = new Trainers();
+        $trainerssearch = $obj->search($name);
+        return view('search', ['trainerssearch' => $trainerssearch]);
     }
 }
