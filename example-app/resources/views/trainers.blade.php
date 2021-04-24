@@ -23,6 +23,42 @@
         </style>
     </head>
     <body>
+        
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0" action="{{URL::to('/searchtrainers')}}">
+                    <input class="form-control mr-sm-2" type="search" name="trainer_name" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="check" viewBox="0 0 16 16">
@@ -55,7 +91,10 @@
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Company</th>
+      <th scope="col">trainer_name</th>
+      <th scope="col">trainer_email</th>
+      <th scope="col">trainer_phone</th>
+      <th scope="col">companies_id</th>
     </tr>
   </thead>
   <tbody>
@@ -63,6 +102,9 @@
         <tr>
             <th>{!! $trainer->trainer_id !!}</th>
             <td>{!! $trainer->trainer_name !!}</td>
+            <td>{!! $trainer->trainer_email !!}</td>
+            <td>{!! $trainer->trainer_phone !!}</td>
+            <td>{!! $trainer->companies_id !!}</td>
         </tr>   
       @endforeach
   </tbody>
