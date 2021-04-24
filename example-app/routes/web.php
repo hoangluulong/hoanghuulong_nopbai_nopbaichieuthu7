@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\TrainersController;
+use App\Http\Controllers\TrainersSearch;
 
 /*
   |--------------------------------------------------------------------------
@@ -22,3 +23,5 @@ Route::get('/', function () {
 Route::get('/companies', [CompaniesController::class, 'Companies']);
 
 Route::get('/trainers', [TrainersController::class, 'Trainers']);
+
+Route::get('/searchtrainers', [TrainersSearch::class, 'Trainers']);
