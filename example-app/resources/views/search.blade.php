@@ -34,28 +34,15 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="{{URL::to('/companies')}}">Companies</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
+                     <li class="nav-item">
+                        <a class="nav-link" href="{{URL::to('/trainers')}}">Companies</a>
                     </li>
                 </ul>
+
                 <form class="form-inline my-2 my-lg-0" action="{{URL::to('/searchtrainers')}}">
                     <input class="form-control mr-sm-2" type="search" name="trainer_name" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -63,32 +50,34 @@
             </div>
         </nav>
 
-       <table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">trainer_name</th>
-      <th scope="col">trainer_email</th>
-      <th scope="col">trainer_phone</th>
-      <th scope="col">company_id</th>
-    </tr>
-  </thead>
-  <tbody>
-      @isset($name)
-      @foreach($trainerssearch as $trainer):
-        <tr>
-            <th>{!! $trainer->trainer_id !!}</th>
-            <td>{!! $trainer->trainer_name !!}</td>
-            <td>{!! $trainer->traniner_email !!}</td>
-            <td>{!! $trainer->trainer_phone !!}</td>
-            <td>{!! $trainer->company_id !!}</td>
-        </tr>   
-      @endforeach
-      @endisset
-  </tbody>
-</table>
+        <div class='container'>
+            <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">trainer_name</th>
+                    <th scope="col">trainer_email</th>
+                    <th scope="col">trainer_phone</th>
+                    <th scope="col">company_id</th>
+                </tr>
+            </thead>
+            <tbody>
+                @isset($name)
+                @foreach($trainerssearch as $trainer):
+                <tr>
+                    <th>{!! $trainer->trainer_id !!}</th>
+                    <td>{!! $trainer->trainer_name !!}</td>
+                    <td>{!! $trainer->traniner_email !!}</td>
+                    <td>{!! $trainer->trainer_phone !!}</td>
+                    <td>{!! $trainer->company_id !!}</td>
+                </tr>   
+                @endforeach
+                @endisset
+            </tbody>
+        </table>
         @isset($name)
-    {{$trainerssearch -> links()}}
-    @endisset
+        {{$trainerssearch -> links()}}
+        @endisset
+        </div>
     </body>
 </html>
