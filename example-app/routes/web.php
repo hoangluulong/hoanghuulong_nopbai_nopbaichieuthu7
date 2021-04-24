@@ -24,4 +24,4 @@ Route::get('/companies', [CompaniesController::class, 'Companies']);
 
 Route::get('/trainers', [TrainersController::class, 'Trainers']);
 
-Route::get('/searchtrainers', [TrainersSearch::class, 'Trainers']);
+Route::get('/searchtrainers', [TrainersSearch::class, 'trainerssearch']);
