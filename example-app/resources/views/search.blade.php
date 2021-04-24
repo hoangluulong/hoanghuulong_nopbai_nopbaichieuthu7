@@ -56,11 +56,35 @@
                         <a class="nav-link disabled" href="#">Disabled</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0" action="#" >
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="form-inline my-2 my-lg-0" action="{{URL::to('/searchtrainers')}}">
+                    <input class="form-control mr-sm-2" type="search" name="trainer_name" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
         </nav>
+
+       <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">trainer_name</th>
+      <th scope="col">trainer_email</th>
+      <th scope="col">trainer_phone</th>
+      <th scope="col">company_id</th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach($trainerssearch as $trainer):
+        <tr>
+            <th>{!! $trainer->trainer_id !!}</th>
+            <td>{!! $trainer->trainer_name !!}</td>
+            <td>{!! $trainer->traniner_email !!}</td>
+            <td>{!! $trainer->trainer_phone !!}</td>
+            <td>{!! $trainer->company_id !!}</td>
+        </tr>   
+      @endforeach
+  </tbody>
+</table>
+    {{$trainerssearch -> links()}}
     </body>
 </html>
