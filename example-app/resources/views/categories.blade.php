@@ -20,6 +20,10 @@
             body {
                 font-family: 'Nunito', sans-serif;
             }
+            
+            .w-5{
+                display: none;
+            }
         </style>
     </head>
     <body>
@@ -33,8 +37,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{URL::to('/companies')}}">Companies</a>
-                    </li>
+                        <a class="nav-link" href="{{URL::to('/trainers')}}">Trainers</a>
+                    </li>              
                 </ul>
                 <form class="form-inline my-2 my-lg-0" action="{{URL::to('/searchtrainers')}}">
                     <input class="form-control mr-sm-2" type="search" name="trainer_name" placeholder="Search" aria-label="Search">
@@ -74,25 +78,29 @@
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">trainer_name</th>
-      <th scope="col">trainer_email</th>
-      <th scope="col">trainer_phone</th>
-      <th scope="col">companies_id</th>
+      <th scope="col">Company_name</th>
+      <th scope="col">Company_web</th>
+      <th scope="col">Company_address</th>
+      <th scope="col">Company_code</th>
+      <th scope="col">Company_phone</th>
     </tr>
   </thead>
   <tbody>
-      @foreach($trainers as $trainer):
+      @foreach($companies as $company):
         <tr>
-            <th>{!! $trainer->trainer_id !!}</th>
-            <td>{!! $trainer->trainer_name !!}</td>
-            <td>{!! $trainer->traniner_email !!}</td>
-            <td>{!! $trainer->trainer_phone !!}</td>
-            <td>{!! $trainer->company_id !!}</td>
+            <th>{!! $company->company_id !!}</th>
+            <td>{!! $company->company_name !!}</td>
+            <td>{!! $company->company_web !!}</td>
+            <td>{!! $company->company_address !!}</td>
+            <td>{!! $company->company_code !!}</td>
+            <td>{!! $company->company_phone !!}</td>
         </tr>   
       @endforeach
   </tbody>
+  
+  
 </table>
-    {{$trainers -> links()}}
+    {{$companies -> links()}}
 
   <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">
