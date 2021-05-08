@@ -7,14 +7,13 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
-use App\Models\Companies;
+use App\Models\Categories;
 
-class CompaniesController extends Controller
+class CategoriesController extends Controller
 {
-    public function companies() {
-        $obj = new Companies();
-//        $companies = $obj-all();
-        $companies = $obj->paginate(15);
-        return view('companies', ['companies' => $companies]);
+    public function categories() {
+        $obj = new Categories();
+        $categories = $obj->pluck('category_name','category_id');
+        return view('categories', ['categories' => $categories]);
     }
 }

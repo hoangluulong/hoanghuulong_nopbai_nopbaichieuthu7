@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             seedCompanies::class,
             seedTrainers::class,
+            seedCategories::class,
         ]);
     }
 }

@@ -17,7 +17,7 @@ class seedCompanies extends Seeder
     public function run()
     {
         //
-        $limit = 1000000;
+        $limit = 1000;
 
         for ($i = 0; $i < $limit; $i++){
             DB::table('companies')->insert([
@@ -26,6 +26,7 @@ class seedCompanies extends Seeder
                 'company_address' => 'Viet Nam',
                 'company_code' => 'code 123',
                 'company_phone' => '01234567891',
+                'category_id' => 10,
             ]);
         }
     }

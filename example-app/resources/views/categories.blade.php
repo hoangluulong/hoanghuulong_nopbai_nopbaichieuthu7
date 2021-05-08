@@ -38,13 +38,20 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="{{URL::to('/trainers')}}">Trainers</a>
-                    </li>              
+                    </li>  
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{URL::to('/companies')}}">Companies</a>
+                    </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0" action="{{URL::to('/searchtrainers')}}">
+                <form class="form-inline my-2 my-lg-0" action="{{URL::to('/companise')}}">
+                    {{ Form::label('category_id', 'Name')}}
+                {!! Form::select('category_id', $categories, null, ['class' => 'form-control']) !!}
                     <input class="form-control mr-sm-2" type="search" name="trainer_name" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
+                
             </div>
+            
         </nav>
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -78,29 +85,14 @@
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Company_name</th>
-      <th scope="col">Company_web</th>
-      <th scope="col">Company_address</th>
-      <th scope="col">Company_code</th>
-      <th scope="col">Company_phone</th>
+      <th scope="col">Category_name</th>
     </tr>
   </thead>
   <tbody>
-      @foreach($companies as $company):
-        <tr>
-            <th>{!! $company->company_id !!}</th>
-            <td>{!! $company->company_name !!}</td>
-            <td>{!! $company->company_web !!}</td>
-            <td>{!! $company->company_address !!}</td>
-            <td>{!! $company->company_code !!}</td>
-            <td>{!! $company->company_phone !!}</td>
-        </tr>   
-      @endforeach
   </tbody>
   
   
 </table>
-    {{$companies -> links()}}
 
   <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">
@@ -140,10 +132,6 @@
     </div>
   </footer>
 </div>
-
-
-    
-  
 
 <div class="selection_bubble_root" style="visibility: hidden;"><span id="speaken">X</span></div><div id="image_search" class="selection_img_search" style="visibility: hidden;"></div></body>
     </body>

@@ -20,17 +20,8 @@ class Companies extends Migration
             $table->string('company_address', 500);
             $table->string('company_code',55);
             $table->string('company_phone',55);
+            $table->String('category_id', $autoIncrement=false);
         });
-
-        // for ($i = 0; $i < 1000000; $i++){
-        //     DB::table('companies')->insert([
-        //         'company_name' => 'Hoanghuulong',
-        //         'company_web' => '.com',
-        //         'company_address' => 'Viet Nam',
-        //         'company_code' => 'code 123',
-        //         'company_phone' => 'phone 123',
-        //     ]);
-        //     }
     }
 
     /**
