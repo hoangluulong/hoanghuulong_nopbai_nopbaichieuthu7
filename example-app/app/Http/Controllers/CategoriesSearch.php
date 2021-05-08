@@ -11,6 +11,6 @@ class CategoriesSearch extends Controller
         
         $obj = new Categories();
         
-        
+        $category = collect([]);
     }
 }
