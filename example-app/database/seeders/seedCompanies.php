@@ -16,18 +16,32 @@ class seedCompanies extends Seeder
      */
     public function run()
     {
-        //
-        $limit = 1000;
+//        //
+//        $limit = 1000;
+//
+//        for ($i = 0; $i < $limit; $i++){
+//            DB::table('companies')->insert([
+//                'company_name' => 'Hoanghuulong',
+//                'company_web' => 'abc.com',
+//                'company_address' => 'Viet Nam',
+//                'company_code' => 'code 123',
+//                'company_phone' => '01234567891',
+//                'category_id' => 10,
+//            ]);
+//        }
+        
+                $limit = 10;
 
         for ($i = 0; $i < $limit; $i++){
             DB::table('companies')->insert([
-                'company_name' => 'Hoanghuulong',
-                'company_web' => 'abc.com',
+                'company_name' => 'Hoanghuulong'.$i,
+                'company_web' => 'abc'.$i.'.com',
                 'company_address' => 'Viet Nam',
                 'company_code' => 'code 123',
                 'company_phone' => '01234567891',
-                'category_id' => 10,
+                'category_id' => rand(1, 10),
             ]);
         }
+        
     }
 }

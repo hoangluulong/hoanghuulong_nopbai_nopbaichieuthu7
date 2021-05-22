@@ -3,8 +3,22 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Trainers;
 
 class Companies extends Model
 {
     protected $table = 'companies';
+    
+    public function search($key){
+       $data= self::where('company_name','like','%'.$key.'%');
+        return $data;
+    }
+    
+    public function trainerCompanies(){ 
+        return $this->hasOne(Trainers::class, 'trainer_id', 'company_id');
+    }
+    
+    public function companyOfCategory(){
+        return $this->hasMany(Categories::class, 'category_id', 'category_id');
+    }
 }

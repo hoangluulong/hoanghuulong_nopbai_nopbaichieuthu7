@@ -13,7 +13,12 @@ class CompaniesController extends Controller
 {
     public function companies() {
         $obj = new Companies();
+        
         $companies = $obj->paginate(15);
+        
         return view('companies', ['companies' => $companies]);
+    }
+    public  function trainer_name(){
+        
     }
 }

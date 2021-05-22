@@ -25,6 +25,32 @@
             display: none;
         }
 
+        .search-container {
+            margin-bottom: 10px;
+        }
+
+        input[type=text] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: none;
+        }
+
+        .search-container button {
+
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background: #ddd;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .search-container button:hover {
+            background: #ccc;
+        }
+
         .link {
 
             display: flex;
@@ -36,85 +62,102 @@
             /* color: #fff; */
         }
 
+        .formselect{
+            width: 100%;
+        }
+        
+        #nhap{
+            padding-right: 200px;
+        }
+
     </style>
 </head>
 
 <body data-new-gr-c-s-check-loaded="14.983.0" data-gr-ext-installed="">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{URL::to('/trainers')}}">Trainers</a>
-                    </li>  
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{URL::to('/companies')}}">Companies</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{URL::to('/searchcompanies')}}">Search Companies</a>
-                    </li>
-
-                </ul>
-                <form class="form-inline my-2 my-lg-0" action="{{URL::to('/searchtrainers')}}">
-                    <input class="form-control mr-sm-2" type="search" name="trainer_name" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </div>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+        <h5 class="my-0 mr-md-auto font-weight-normal">Companies</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="{!!asset('trainers')!!}">Trainers</a>
+            <a class="p-2 text-dark" href="{!!asset('search/companies')!!}">Search</a>
+            <a class="p-2 text-dark" href="{!!asset('companies')!!}">Companies</a>
+            <a class="p-2 text-dark" href="{!!asset('categories')!!}">Categories</a>
         </nav>
-    
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-4">List category</h1>
-        <div class="container w-75">
+
+    </div>
+
+    <div class='container'>
+                <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Search for Companies</h1>
+
+        <div class="search-container">
+            <form method="get" action="{!!asset('searchcompanies')!!}">
+                <input type="text" id="nhap" placeholder="Search for companies.." name="search">
+                <button type="submit">Search</button>
+            </form>
+            <div class="formselect">
+                {!! Form::select('categories[]', $categories, null) !!}
+            </div>
+        </div>
+        @isset($name)
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th class="color" scope="col">ID</th>
+                        <th class="color" scope="col">Category_ID</th>
                         <th class="color" scope="col">Name</th>
+                        <th class="color" scope="col">Web</th>
+                        <th class="color" scope="col">Address</th>
+                        <th class="color" scope="col">Code</th>
+                        <th class="color" scope="col">Phone</th>
+                        <th class="color" scope="col">Category_name</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($categories as $category):
-        <tr>
-            <th>{!! $category->category_id !!}</th>
-            <td>{!! $category->category_name !!}</td>
-        </tr>   
-      @endforeach
+                    @foreach ($companies as $company)
+                        <tr>
+                            <th scope="row">{!! $company->company_id !!}</th>
+                            <td>{!! $company->category_id !!}</td>
+                            <td>{!! $company->company_name !!}</td>
+                            <td>{!! $company->company_web !!}</td>
+                            <td>{!! $company->company_address !!}</td>
+                            <td>{!! $company->company_code !!}</td>
+                            <td>{!! $company->company_phone !!}</td>
+                            <td>{!! $company->companyOfCategory[0]['category_name'] !!}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
+            <!--<div class="link"> {{ $companies->withQueryString()->links() }}</div>-->
+
         </div>
 
 
-      
-        </div>
 
-        
+    @endisset
 
-            <!-- Bootstrap core JavaScript
+    <!-- Bootstrap core JavaScript
         ================================================== -->
-            <!-- Placed at the end of the document so the pages load faster -->
-            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-                crossorigin="anonymous"></script>
-            <script>
-                window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script>
+        window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
 
-            </script>
-            <script src="../../assets/js/vendor/popper.min.js"></script>
-            <script src="../../dist/js/bootstrap.min.js"></script>
-            <script src="../../assets/js/vendor/holder.min.js"></script>
-            <script>
-                Holder.addTheme('thumb', {
-                    bg: '#55595c',
-                    fg: '#eceeef',
-                    text: 'Thumbnail'
-                });
+    </script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <script>
+        Holder.addTheme('thumb', {
+            bg: '#55595c',
+            fg: '#eceeef',
+            text: 'Thumbnail'
+        });
 
-            </script>
+    </script>
+    </div>
 
 
 </body>

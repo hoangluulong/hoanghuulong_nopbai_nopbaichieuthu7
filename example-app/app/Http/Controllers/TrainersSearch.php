@@ -13,7 +13,7 @@ class TrainersSearch extends Controller
         
         if($request->input('trainer_name')){
             $name = $request->input('trainer_name');
-        
+            
             $trainerssearch = $obj->search($name);
             
             return view('search', ['trainerssearch' => $trainerssearch, 'name' =>$name]);

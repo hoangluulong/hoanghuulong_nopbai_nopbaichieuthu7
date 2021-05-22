@@ -16,12 +16,16 @@ class seedCategories extends Seeder
      */
     public function run()
     {
-         $limit = 20;
-
-        for ($i = 0; $i < $limit; $i++){
-            DB::table('categories')->insert([
-                'category_name' => 'HHL',
-            ]);
-        }
+        $queryInsert='insert into categories values (null,?);';
+            DB::insert($queryInsert,['HH1']);
+            DB::insert($queryInsert,['HH2']);
+            DB::insert($queryInsert,['HH3']);
+            DB::insert($queryInsert,['HH4']);
+            DB::insert($queryInsert,['HH5']);
+            DB::insert($queryInsert,['HH6']);
+            DB::insert($queryInsert,['HH7']);
+            DB::insert($queryInsert,['HH8']);
+            DB::insert($queryInsert,['HH9']);
+            DB::insert($queryInsert,['HH10']);
     }
 }

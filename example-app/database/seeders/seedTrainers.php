@@ -17,14 +17,26 @@ class seedTrainers extends Seeder
     public function run()
     {
         //
-        $limit = 1000;
+//        $limit = 1000;
+//
+//        for ($i = 0; $i < $limit; $i++){
+//            DB::table('trainers')->insert([
+//                'trainer_name' => 'abc',
+//                'traniner_email' => 'abc@gmail.com',
+//                'trainer_phone' => '0981986059',
+//                'company_id' => rand(1, 999),
+//            ]);
+//        }
+        
+        
+        $limit = 10;
 
         for ($i = 0; $i < $limit; $i++){
             DB::table('trainers')->insert([
-                'trainer_name' => 'abc',
+                'trainer_name' => 'traine name '.$i,
                 'traniner_email' => 'abc@gmail.com',
                 'trainer_phone' => '0981986059',
-                'company_id' => rand(1, 999),
+                'company_id' => $i+1,
             ]);
         }
     }

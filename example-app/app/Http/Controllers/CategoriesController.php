@@ -11,9 +11,16 @@ use App\Models\Categories;
 
 class CategoriesController extends Controller
 {
-    public function categories() {
+    public function categories()
+    {
         $obj = new Categories();
-        $categories = $obj->pluck('category_name','category_id');
+        $categories = $obj->paginate(20);
+        return view('categories', ['categories' => $categories]);
+    }
+
+    public function myMethod(){
+        $categories = DB::table('categories')->pluck('category_id', 'category_name')->toArray();
+
         return view('categories', ['categories' => $categories]);
     }
 }

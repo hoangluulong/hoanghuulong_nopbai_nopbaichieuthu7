@@ -38,7 +38,14 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="{{URL::to('/trainers')}}">Trainers</a>
-                    </li>              
+                    </li>  
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{URL::to('/categories')}}">Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{URL::to('/searchcompanies')}}">Search Companies</a>
+                    </li>
+
                 </ul>
                 <form class="form-inline my-2 my-lg-0" action="{{URL::to('/searchtrainers')}}">
                     <input class="form-control mr-sm-2" type="search" name="trainer_name" placeholder="Search" aria-label="Search">
@@ -83,6 +90,7 @@
       <th scope="col">Company_address</th>
       <th scope="col">Company_code</th>
       <th scope="col">Company_phone</th>
+      <th scope="col">trainer_name</th>
     </tr>
   </thead>
   <tbody>
@@ -94,6 +102,7 @@
             <td>{!! $company->company_address !!}</td>
             <td>{!! $company->company_code !!}</td>
             <td>{!! $company->company_phone !!}</td>
+             <td>{!! $company->trainerCompanies['trainer_name'] !!}</td>
         </tr>   
       @endforeach
   </tbody>

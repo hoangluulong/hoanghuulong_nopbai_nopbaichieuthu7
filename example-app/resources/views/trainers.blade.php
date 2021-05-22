@@ -35,6 +35,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{URL::to('/companies')}}">Companies</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{URL::to('/categories')}}">Category</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{URL::to('/searchcompanies')}}">Search Companies</a>
+                    </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0" action="{{URL::to('/searchtrainers')}}">
                     <input class="form-control mr-sm-2" type="search" name="trainer_name" placeholder="Search" aria-label="Search">
@@ -62,6 +68,7 @@
       <a class="me-3 py-2 text-dark text-decoration-none" href="#">Enterprise</a>
       <a class="me-3 py-2 text-dark text-decoration-none" href="#">Support</a>
       <a class="py-2 text-dark text-decoration-none" href="#">Pricing</a>
+      
     </nav>
   </header>
 
@@ -78,6 +85,7 @@
       <th scope="col">trainer_email</th>
       <th scope="col">trainer_phone</th>
       <th scope="col">companies_id</th>
+      <th scope="col">companies_name</th>
     </tr>
   </thead>
   <tbody>
@@ -88,6 +96,7 @@
             <td>{!! $trainer->traniner_email !!}</td>
             <td>{!! $trainer->trainer_phone !!}</td>
             <td>{!! $trainer->company_id !!}</td>
+            <td>{!! $trainer->companiesTrainer['company_name'] !!}</td>
         </tr>   
       @endforeach
   </tbody>

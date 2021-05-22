@@ -5,6 +5,7 @@ use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\TrainersController;
 use App\Http\Controllers\TrainersSearch;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\SearchController;
 
 /*
   |--------------------------------------------------------------------------
@@ -28,3 +29,5 @@ Route::get('/trainers', [TrainersController::class, 'Trainers']);
 Route::get('/searchtrainers', [TrainersSearch::class, 'trainerssearch']);
 
 Route::get('/categories', [CategoriesController::class, 'Categories']);
+
+Route::get('/searchcompanies', [SearchController::class,'searchCompanies']);
