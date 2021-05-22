@@ -15,7 +15,7 @@ class Companies extends Model
     }
     
     public function trainerCompanies(){ 
-        return $this->hasOne(Trainers::class, 'trainer_id', 'company_id');
+        return $this->hasOne(Trainers::class, 'company_id', 'company_id');
     }
     
     public function companyOfCategory(){
