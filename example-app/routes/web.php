@@ -30,4 +30,4 @@ Route::get('/searchtrainers', [TrainersSearch::class, 'trainerssearch']);
 
 Route::get('/categories', [CategoriesController::class, 'Categories']);
 
-Route::get('/searchcompanies', [SearchController::class,'searchCompanies']);
+Route::get('/searchcompanies', [SearchController::class,'searchCompanies'])->name('searchCompanies');
