@@ -23,7 +23,7 @@ class SearchController extends Controller
 
             return view('searchcompanies',[
                 'companies' => $result,
-                'keys' => $request->input('name'),
+                'name' => $request->input('name'),
                 'categories' => $categories
                 ]);
         }
