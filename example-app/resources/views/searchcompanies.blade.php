@@ -32,8 +32,8 @@
 
         <div class="search-container">
             <form method="get" action="{!!asset('searchcompanies')!!}"> 
-                    <input type="text" class="form-control" name="k" placeholder="Tìm Kiếm...">
-                  {!!Form::select('categoryName', $categories)!!}
+                    <input type="text" class="form-control" name="name" placeholder="Tìm Kiếm...">
+                  {!!Form::select('category_name', $categories)!!}
 
                   <button type="submit" class="btn btn-primary">Search</button>
             </form>

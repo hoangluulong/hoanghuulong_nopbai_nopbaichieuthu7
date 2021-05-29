@@ -14,13 +14,13 @@ class Categories extends Model
         return $categories;
     }
 
-    public function categoryPluck()
-    {
-        $categories = $this->pluck('category_name', 'category_id');
-        return $categories;
-    }
+//    public function categoryPluck()
+//    {
+//        $categories = $this->pluck('category_name', 'category_id');
+//        return $categories;
+//    }
     
-    public function getPluckCategories()
+    public function getPluckSearch()
     {
         $categories = $this->pluck('category_name', 'category_id');
         return $categories;

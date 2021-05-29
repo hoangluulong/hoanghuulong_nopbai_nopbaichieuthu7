@@ -39,7 +39,7 @@
                         <a class="nav-link" href="{{URL::to('/companies')}}">Companies</a>
                     </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="{{URL::to('/trainers')}}">Companies</a>
+                        <a class="nav-link" href="{{URL::to('/trainers')}}">Traineres</a>
                     </li>
                 </ul>
 

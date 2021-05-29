@@ -9,17 +9,6 @@ class Companies extends Model
 {
     protected $table = 'companies';
     
-//    public function search($key){
-//       $data= self::where('company_name','like','%'.$key.'%');
-//        return $data;
-//    }
-//    
-    
-    public function getCompanies(){
-       $companies =  $this->paginate(15);
-       return $companies;
-    }
-    
     public function trainerCompanies(){ 
         return $this->hasOne(Trainers::class, 'company_id', 'company_id');
     }
@@ -28,11 +17,11 @@ class Companies extends Model
         return $this->hasMany(Categories::class, 'category_id', 'category_id');
     }
     
-    public function search($key,$categoryName){
-        $result = $this ->where('category_id',$categoryName)
+    public function search($name,$category_name){
+        $company = $this ->where('category_id', $category_name)
                         ->paginate(15);
 
-        $result->withPath(route('searchCompanies') . "?k=" . str_replace(' ','+',$key));
-        return $result;
+        $company->withPath(route('searchCompanies') . "?name=" . str_replace(' ','+', $name));
+        return $company;
     }
 }
