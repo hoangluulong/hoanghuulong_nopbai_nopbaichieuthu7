@@ -39,7 +39,6 @@ class seedCompanies extends Seeder
                 'company_address' => 'Viet Nam',
                 'company_code' => 'code 123',
                 'company_phone' => '01234567891',
-                'category_id' => rand(1, 10),
             ]);
         }
         
