@@ -31,3 +31,7 @@ Route::get('/searchtrainers', [TrainersSearch::class, 'trainerssearch']);
 Route::get('/categories', [CategoriesController::class, 'Categories']);
 
 Route::get('/searchcompanies', [SearchController::class,'searchCompanies'])->name('searchCompanies');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
